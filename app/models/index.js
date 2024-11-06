@@ -29,6 +29,7 @@ db.role = require("../models/role.model.js")(sequelize, Sequelize);
 db.refreshToken = require("../models/refreshToken.model.js")(sequelize, Sequelize);
 db.nakshatras = require("../models/nakshatras.model.js")(sequelize, Sequelize);
 db.gothras = require("../models/gothras.model.js")(sequelize, Sequelize);
+db.seves = require("../models/seves.model.js")(sequelize, Sequelize);
 
 db.role.belongsToMany(db.user, {
   through: "user_roles",
