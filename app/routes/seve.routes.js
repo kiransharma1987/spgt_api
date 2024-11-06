@@ -1,6 +1,6 @@
 const { verifySignUp } = require("../middleware");
 const controller = require("../controllers/seve.controller");
-const { fetch_nakshatras } = require("../controllers/seve.controller");
+const { fetch_nakshatras,submitSeveBooking } = require("../controllers/seve.controller");
 
 module.exports = function(app) {
     app.use(function(req, res, next) {
@@ -16,4 +16,5 @@ module.exports = function(app) {
     };
 
     app.get("/api/auth/seve", fetchNakshatrasWrapper);
+    app.get("/api/seve/submit", submitSeveBooking);
 };
