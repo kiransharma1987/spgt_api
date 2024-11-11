@@ -16,5 +16,5 @@ module.exports = function(app) {
     };
 
     app.get("/api/auth/seve", fetchNakshatrasWrapper);
-    app.get("/api/seve/submit", submitSeveBooking);
+    app.post("/api/seve/submit", submitSeveBooking);
 };
