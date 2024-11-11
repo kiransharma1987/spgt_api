@@ -12,6 +12,9 @@ module.exports = (sequelize, Sequelize) => {
         nakshatra: {
             type: Sequelize.STRING
         },
+        rashi: {
+            type: Sequelize.STRING
+        },
         type: {
             type: Sequelize.STRING
         },
