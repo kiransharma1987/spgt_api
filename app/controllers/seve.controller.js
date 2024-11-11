@@ -19,7 +19,7 @@ exports.fetch_nakshatras = async (req, res) => {
 exports.submitSeveBooking = (req, res) => {
     // Save User to Database
     Seves.create({
-        username: req.body.username,
+        name: req.body.name,
         mobile: req.body.mobile,
         nakshatra: req.body.nakshatra,
         gothra: req.body.gothra,
