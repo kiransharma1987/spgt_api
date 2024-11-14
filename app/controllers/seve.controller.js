@@ -26,7 +26,7 @@ exports.submitSeveBooking = (req, res) => {
         nakshatra: req.body.nakshatra,
         gothra: req.body.gothra,
         rashi: req.body.rashi,
-        type: req.body.type,
+        seve: req.body.seve,
         amount: req.body.amount
     })
         .then(submitted_seve => {
