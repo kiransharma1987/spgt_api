@@ -11,7 +11,7 @@ exports.fetch_nakshatras = async (req, res) => {
             nakshatras: nakshatras,
             gothras: gothras,
             rashis: rashis,
-            seves: Seves
+            seves: seves
         });
     } catch (err) {
         res.status(500).send({message: err.message}); // Handle error
