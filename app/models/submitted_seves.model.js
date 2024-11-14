@@ -15,7 +15,7 @@ module.exports = (sequelize, Sequelize) => {
         rashi: {
             type: Sequelize.STRING
         },
-        type: {
+        seve: {
             type: Sequelize.STRING
         },
         amount: {
