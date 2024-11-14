@@ -1,15 +1,17 @@
 const db = require("../models");
-const {nakshatras: Nakshatras, gothras: Gothras, rashis: Rashis, seves: Seves} = db;
+const {nakshatras: Nakshatras, gothras: Gothras, rashis: Rashis, submitted_seves: Submitted_Seves, seves: Seves} = db;
 
 exports.fetch_nakshatras = async (req, res) => {
     try {
         const nakshatras = await Nakshatras.findAll(); // Fetch all nakshatras
         const gothras = await Gothras.findAll(); // Fetch all Gothras
         const rashis = await Rashis.findAll(); // Fetch all Rashis
+        const seves = await Seves.findAll(); // Fetch all Seves
         res.status(200).send({
             nakshatras: nakshatras,
             gothras: gothras,
-            rashis: rashis
+            rashis: rashis,
+            seves: Seves
         });
     } catch (err) {
         res.status(500).send({message: err.message}); // Handle error
@@ -17,8 +19,8 @@ exports.fetch_nakshatras = async (req, res) => {
 };
 
 exports.submitSeveBooking = (req, res) => {
-    // Save User to Database
-    Seves.create({
+    // Save Submitted_Seves to Database
+    Submitted_Seves.create({
         name: req.body.name,
         mobile: req.body.mobile,
         nakshatra: req.body.nakshatra,
@@ -27,7 +29,7 @@ exports.submitSeveBooking = (req, res) => {
         type: req.body.type,
         amount: req.body.amount
     })
-        .then(seve => {
+        .then(submitted_seve => {
             res.send({
                 status: 1,
                 message: "Seve added successfully !"
