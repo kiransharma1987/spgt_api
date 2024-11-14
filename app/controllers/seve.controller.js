@@ -1,5 +1,5 @@
 const db = require("../models");
-const {nakshatras: Nakshatras, gothras: Gothras,rashis: Rashis, seves: Seves} = db;
+const {nakshatras: Nakshatras, gothras: Gothras, rashis: Rashis, seves: Seves} = db;
 
 exports.fetch_nakshatras = async (req, res) => {
     try {
@@ -28,9 +28,12 @@ exports.submitSeveBooking = (req, res) => {
         amount: req.body.amount
     })
         .then(seve => {
-            res.send({ message: "Seve added successfully !" });
+            res.send({
+                status: 1,
+                message: "Seve added successfully !"
+            });
         })
         .catch(err => {
-            res.status(500).send({ message: err.message });
+            res.status(500).send({message: err.message});
         });
 };
