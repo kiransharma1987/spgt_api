@@ -18,7 +18,7 @@ exports.fetch_nakshatras = async (req, res) => {
     }
 };
 
-exports.submitSeveBooking = (req, res) => {
+/*exports.submitSeveBooking = (req, res) => {
     // Save Submitted_Seves to Database
     Submitted_Seves.create({
         name: req.body.name,
@@ -30,6 +30,9 @@ exports.submitSeveBooking = (req, res) => {
         amount: req.body.amount
     })
         .then(submitted_seve => {
+            const today = new Date();
+            const formattedDate = (today.getMonth() + 1).toString().padStart(2, '0') + today.getFullYear().toString().slice(2);
+            console.log(formattedDate);
             res.send({
                 status: 1,
                 message: "Seve added successfully !"
@@ -38,4 +41,40 @@ exports.submitSeveBooking = (req, res) => {
         .catch(err => {
             res.status(500).send({message: err.message});
         });
+};*/
+
+exports.submitSeveBooking = (req, res) => {
+    // Save Submitted_Seves to Database
+    Submitted_Seves.create({
+        name: req.body.name,
+        mobile: req.body.mobile,
+        nakshatra: req.body.nakshatra,
+        gothra: req.body.gothra,
+        rashi: req.body.rashi,
+        seve: req.body.seve,
+        amount: req.body.amount,
+        scheduled_date: req.body.scheduled_date
+    })
+        .then(submitted_seve => {
+            const newSeveId = submitted_seve.id;
+            const updatedAtTime = submitted_seve.updatedAt.toLocaleString("en-IN", { timeZone: "Asia/Kolkata" });
+            const today = new Date();
+            const formattedDate = (today.getMonth() + 1).toString().padStart(2, '0') + today.getFullYear().toString().slice(2);
+            const billNum = 'SM-' + formattedDate + newSeveId;
+            console.log('Formatted Date:', formattedDate);
+            console.log('New Seve ID:', newSeveId);
+            console.log('Bill Num:', billNum);
+            console.log('Updated at time:', updatedAtTime); 
+
+            res.send({
+                status: 1,
+                message: "Seve added successfully !",
+                bill_num: billNum,
+                updated_at_time:updatedAtTime
+            });
+        })
+        .catch(err => {
+            res.status(500).send({message: err.message});
+        });
 };
+

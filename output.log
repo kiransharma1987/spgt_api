@@ -1,0 +1,296 @@
+[33m[nodemon] 3.1.7[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching path(s): *.*[39m
+[33m[nodemon] watching extensions: js,mjs,cjs,json[39m
+[32m[nodemon] starting `node server.js`[39m
+Server is running on port 8082.
+Executing (default): CREATE TABLE IF NOT EXISTS `users` (`id` INTEGER NOT NULL auto_increment , `username` VARCHAR(255), `email` VARCHAR(255), `password` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+Executing (default): CREATE TABLE IF NOT EXISTS `users` (`id` INTEGER NOT NULL auto_increment , `username` VARCHAR(255), `email` VARCHAR(255), `password` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+Executing (default): SHOW INDEX FROM `users`
+Executing (default): SHOW INDEX FROM `users`
+Executing (default): CREATE TABLE IF NOT EXISTS `roles` (`id` INTEGER , `name` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+Executing (default): CREATE TABLE IF NOT EXISTS `roles` (`id` INTEGER , `name` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+Executing (default): SHOW INDEX FROM `roles`
+Executing (default): SHOW INDEX FROM `roles`
+Executing (default): CREATE TABLE IF NOT EXISTS `refreshTokens` (`id` INTEGER NOT NULL auto_increment , `token` VARCHAR(255), `expiryDate` DATETIME, `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, `userId` INTEGER, PRIMARY KEY (`id`), FOREIGN KEY (`userId`) REFERENCES `users` (`id`) ON DELETE SET NULL ON UPDATE CASCADE) ENGINE=InnoDB;
+Executing (default): CREATE TABLE IF NOT EXISTS `refreshTokens` (`id` INTEGER NOT NULL auto_increment , `token` VARCHAR(255), `expiryDate` DATETIME, `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, `userId` INTEGER, PRIMARY KEY (`id`), FOREIGN KEY (`userId`) REFERENCES `users` (`id`) ON DELETE SET NULL ON UPDATE CASCADE) ENGINE=InnoDB;
+Executing (default): SHOW INDEX FROM `refreshTokens`
+Executing (default): SHOW INDEX FROM `refreshTokens`
+Executing (default): CREATE TABLE IF NOT EXISTS `nakshatras` (`id` INTEGER NOT NULL auto_increment , `name` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+Executing (default): CREATE TABLE IF NOT EXISTS `nakshatras` (`id` INTEGER NOT NULL auto_increment , `name` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+Executing (default): SHOW INDEX FROM `nakshatras`
+Executing (default): SHOW INDEX FROM `nakshatras`
+Executing (default): CREATE TABLE IF NOT EXISTS `gothras` (`id` INTEGER NOT NULL auto_increment , `name` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+Executing (default): CREATE TABLE IF NOT EXISTS `gothras` (`id` INTEGER NOT NULL auto_increment , `name` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+Executing (default): SHOW INDEX FROM `gothras`
+Executing (default): SHOW INDEX FROM `gothras`
+Executing (default): CREATE TABLE IF NOT EXISTS `user_roles` (`createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, `roleId` INTEGER , `userId` INTEGER , PRIMARY KEY (`roleId`, `userId`), FOREIGN KEY (`roleId`) REFERENCES `roles` (`id`) ON DELETE CASCADE ON UPDATE CASCADE, FOREIGN KEY (`userId`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE) ENGINE=InnoDB;
+Executing (default): CREATE TABLE IF NOT EXISTS `user_roles` (`createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, `roleId` INTEGER , `userId` INTEGER , PRIMARY KEY (`roleId`, `userId`), FOREIGN KEY (`roleId`) REFERENCES `roles` (`id`) ON DELETE CASCADE ON UPDATE CASCADE, FOREIGN KEY (`userId`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE) ENGINE=InnoDB;
+Executing (default): SHOW INDEX FROM `user_roles`
+Executing (default): SHOW INDEX FROM `user_roles`
+Drop and Resync Database with { force: true }
+Executing (default): INSERT INTO `roles` (`id`,`name`,`createdAt`,`updatedAt`) VALUES (?,?,?,?);
+Executing (default): INSERT INTO `roles` (`id`,`name`,`createdAt`,`updatedAt`) VALUES (?,?,?,?);
+Executing (default): INSERT INTO `roles` (`id`,`name`,`createdAt`,`updatedAt`) VALUES (?,?,?,?);
+Executing (default): SELECT `id`, `username`, `email`, `password`, `createdAt`, `updatedAt` FROM `users` AS `users` WHERE `users`.`username` = 'pssg' LIMIT 1;
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node server.js`[39m
+Server is running on port 8082.
+Executing (default): CREATE TABLE IF NOT EXISTS `users` (`id` INTEGER NOT NULL auto_increment , `username` VARCHAR(255), `email` VARCHAR(255), `password` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+Executing (default): CREATE TABLE IF NOT EXISTS `users` (`id` INTEGER NOT NULL auto_increment , `username` VARCHAR(255), `email` VARCHAR(255), `password` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+Executing (default): SHOW INDEX FROM `users`
+Executing (default): SHOW INDEX FROM `users`
+Executing (default): CREATE TABLE IF NOT EXISTS `roles` (`id` INTEGER , `name` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+Executing (default): CREATE TABLE IF NOT EXISTS `roles` (`id` INTEGER , `name` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+Executing (default): SHOW INDEX FROM `roles`
+Executing (default): SHOW INDEX FROM `roles`
+Executing (default): CREATE TABLE IF NOT EXISTS `refreshTokens` (`id` INTEGER NOT NULL auto_increment , `token` VARCHAR(255), `expiryDate` DATETIME, `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, `userId` INTEGER, PRIMARY KEY (`id`), FOREIGN KEY (`userId`) REFERENCES `users` (`id`) ON DELETE SET NULL ON UPDATE CASCADE) ENGINE=InnoDB;
+Executing (default): CREATE TABLE IF NOT EXISTS `refreshTokens` (`id` INTEGER NOT NULL auto_increment , `token` VARCHAR(255), `expiryDate` DATETIME, `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, `userId` INTEGER, PRIMARY KEY (`id`), FOREIGN KEY (`userId`) REFERENCES `users` (`id`) ON DELETE SET NULL ON UPDATE CASCADE) ENGINE=InnoDB;
+Executing (default): SHOW INDEX FROM `refreshTokens`
+Executing (default): SHOW INDEX FROM `refreshTokens`
+Executing (default): CREATE TABLE IF NOT EXISTS `nakshatras` (`id` INTEGER NOT NULL auto_increment , `name` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+Executing (default): CREATE TABLE IF NOT EXISTS `nakshatras` (`id` INTEGER NOT NULL auto_increment , `name` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+Executing (default): SHOW INDEX FROM `nakshatras`
+Executing (default): SHOW INDEX FROM `nakshatras`
+Executing (default): CREATE TABLE IF NOT EXISTS `gothras` (`id` INTEGER NOT NULL auto_increment , `name` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+Executing (default): CREATE TABLE IF NOT EXISTS `gothras` (`id` INTEGER NOT NULL auto_increment , `name` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+Executing (default): SHOW INDEX FROM `gothras`
+Executing (default): SHOW INDEX FROM `gothras`
+Executing (default): CREATE TABLE IF NOT EXISTS `user_roles` (`createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, `roleId` INTEGER , `userId` INTEGER , PRIMARY KEY (`roleId`, `userId`), FOREIGN KEY (`roleId`) REFERENCES `roles` (`id`) ON DELETE CASCADE ON UPDATE CASCADE, FOREIGN KEY (`userId`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE) ENGINE=InnoDB;
+Executing (default): CREATE TABLE IF NOT EXISTS `user_roles` (`createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, `roleId` INTEGER , `userId` INTEGER , PRIMARY KEY (`roleId`, `userId`), FOREIGN KEY (`roleId`) REFERENCES `roles` (`id`) ON DELETE CASCADE ON UPDATE CASCADE, FOREIGN KEY (`userId`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE) ENGINE=InnoDB;
+Executing (default): SHOW INDEX FROM `user_roles`
+Executing (default): SHOW INDEX FROM `user_roles`
+Drop and Resync Database with { force: true }
+Executing (default): INSERT INTO `roles` (`id`,`name`,`createdAt`,`updatedAt`) VALUES (?,?,?,?);
+Executing (default): INSERT INTO `roles` (`id`,`name`,`createdAt`,`updatedAt`) VALUES (?,?,?,?);
+Executing (default): INSERT INTO `roles` (`id`,`name`,`createdAt`,`updatedAt`) VALUES (?,?,?,?);
+Executing (default): SELECT `id`, `username`, `email`, `password`, `createdAt`, `updatedAt` FROM `users` AS `users` WHERE `users`.`username` = 'psasdsg' LIMIT 1;
+Executing (default): SELECT `id`, `username`, `email`, `password`, `createdAt`, `updatedAt` FROM `users` AS `users` WHERE `users`.`email` = 'pssasdg@gmail.com' LIMIT 1;
+Am here signing uppp
+Executing (default): INSERT INTO `users` (`id`,`username`,`email`,`password`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?);
+Executing (default): SELECT `createdAt`, `updatedAt`, `roleId`, `userId` FROM `user_roles` AS `user_roles` WHERE `user_roles`.`userId` = 3;
+Executing (default): INSERT INTO `user_roles` (`createdAt`,`updatedAt`,`roleId`,`userId`) VALUES ('2024-10-26 11:55:04','2024-10-26 11:55:04',1,3);
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node server.js`[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node server.js`[39m
+Server is running on port 8082.
+Executing (default): CREATE TABLE IF NOT EXISTS `users` (`id` INTEGER NOT NULL auto_increment , `username` VARCHAR(255), `email` VARCHAR(255), `password` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+Executing (default): CREATE TABLE IF NOT EXISTS `users` (`id` INTEGER NOT NULL auto_increment , `username` VARCHAR(255), `email` VARCHAR(255), `password` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+Executing (default): SHOW INDEX FROM `users`
+Executing (default): SHOW INDEX FROM `users`
+Executing (default): CREATE TABLE IF NOT EXISTS `roles` (`id` INTEGER , `name` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+Executing (default): SHOW INDEX FROM `roles`
+Executing (default): CREATE TABLE IF NOT EXISTS `refreshTokens` (`id` INTEGER NOT NULL auto_increment , `token` VARCHAR(255), `expiryDate` DATETIME, `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, `userId` INTEGER, PRIMARY KEY (`id`), FOREIGN KEY (`userId`) REFERENCES `users` (`id`) ON DELETE SET NULL ON UPDATE CASCADE) ENGINE=InnoDB;
+Executing (default): SHOW INDEX FROM `refreshTokens`
+Executing (default): CREATE TABLE IF NOT EXISTS `roles` (`id` INTEGER , `name` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+Executing (default): SHOW INDEX FROM `roles`
+Executing (default): CREATE TABLE IF NOT EXISTS `nakshatras` (`id` INTEGER NOT NULL auto_increment , `name` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+Executing (default): SHOW INDEX FROM `nakshatras`
+Executing (default): CREATE TABLE IF NOT EXISTS `refreshTokens` (`id` INTEGER NOT NULL auto_increment , `token` VARCHAR(255), `expiryDate` DATETIME, `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, `userId` INTEGER, PRIMARY KEY (`id`), FOREIGN KEY (`userId`) REFERENCES `users` (`id`) ON DELETE SET NULL ON UPDATE CASCADE) ENGINE=InnoDB;
+Executing (default): SHOW INDEX FROM `refreshTokens`
+Executing (default): CREATE TABLE IF NOT EXISTS `gothras` (`id` INTEGER NOT NULL auto_increment , `name` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+Executing (default): CREATE TABLE IF NOT EXISTS `nakshatras` (`id` INTEGER NOT NULL auto_increment , `name` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+Executing (default): SHOW INDEX FROM `gothras`
+Executing (default): SHOW INDEX FROM `nakshatras`
+Executing (default): CREATE TABLE IF NOT EXISTS `user_roles` (`createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, `roleId` INTEGER , `userId` INTEGER , PRIMARY KEY (`roleId`, `userId`), FOREIGN KEY (`roleId`) REFERENCES `roles` (`id`) ON DELETE CASCADE ON UPDATE CASCADE, FOREIGN KEY (`userId`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE) ENGINE=InnoDB;
+Executing (default): CREATE TABLE IF NOT EXISTS `gothras` (`id` INTEGER NOT NULL auto_increment , `name` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+Executing (default): SHOW INDEX FROM `user_roles`
+Executing (default): SHOW INDEX FROM `gothras`
+Drop and Resync Database with { force: true }
+Executing (default): CREATE TABLE IF NOT EXISTS `user_roles` (`createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, `roleId` INTEGER , `userId` INTEGER , PRIMARY KEY (`roleId`, `userId`), FOREIGN KEY (`roleId`) REFERENCES `roles` (`id`) ON DELETE CASCADE ON UPDATE CASCADE, FOREIGN KEY (`userId`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE) ENGINE=InnoDB;
+Executing (default): INSERT INTO `roles` (`id`,`name`,`createdAt`,`updatedAt`) VALUES (?,?,?,?);
+Executing (default): INSERT INTO `roles` (`id`,`name`,`createdAt`,`updatedAt`) VALUES (?,?,?,?);
+Executing (default): INSERT INTO `roles` (`id`,`name`,`createdAt`,`updatedAt`) VALUES (?,?,?,?);
+Executing (default): SHOW INDEX FROM `user_roles`
+Executing (default): SELECT `id`, `username`, `email`, `password`, `createdAt`, `updatedAt` FROM `users` AS `users` WHERE `users`.`username` = 'psaasdsdsg' LIMIT 1;
+Executing (default): SELECT `id`, `username`, `email`, `password`, `createdAt`, `updatedAt` FROM `users` AS `users` WHERE `users`.`email` = 'psasdsasdg@gmail.com' LIMIT 1;
+Am here signing uppp
+Executing (default): INSERT INTO `users` (`id`,`username`,`email`,`password`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?);
+Executing (default): SELECT `createdAt`, `updatedAt`, `roleId`, `userId` FROM `user_roles` AS `user_roles` WHERE `user_roles`.`userId` = 4;
+Executing (default): INSERT INTO `user_roles` (`createdAt`,`updatedAt`,`roleId`,`userId`) VALUES ('2024-10-26 11:55:23','2024-10-26 11:55:23',1,4);
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node server.js`[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node server.js`[39m
+Server is running on port 8082.
+Executing (default): CREATE TABLE IF NOT EXISTS `users` (`id` INTEGER NOT NULL auto_increment , `username` VARCHAR(255), `email` VARCHAR(255), `password` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+Executing (default): CREATE TABLE IF NOT EXISTS `users` (`id` INTEGER NOT NULL auto_increment , `username` VARCHAR(255), `email` VARCHAR(255), `password` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+Executing (default): SHOW INDEX FROM `users`
+Executing (default): SHOW INDEX FROM `users`
+Executing (default): CREATE TABLE IF NOT EXISTS `roles` (`id` INTEGER , `name` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+Executing (default): CREATE TABLE IF NOT EXISTS `roles` (`id` INTEGER , `name` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+Executing (default): SHOW INDEX FROM `roles`
+Executing (default): SHOW INDEX FROM `roles`
+Executing (default): CREATE TABLE IF NOT EXISTS `refreshTokens` (`id` INTEGER NOT NULL auto_increment , `token` VARCHAR(255), `expiryDate` DATETIME, `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, `userId` INTEGER, PRIMARY KEY (`id`), FOREIGN KEY (`userId`) REFERENCES `users` (`id`) ON DELETE SET NULL ON UPDATE CASCADE) ENGINE=InnoDB;
+Executing (default): CREATE TABLE IF NOT EXISTS `refreshTokens` (`id` INTEGER NOT NULL auto_increment , `token` VARCHAR(255), `expiryDate` DATETIME, `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, `userId` INTEGER, PRIMARY KEY (`id`), FOREIGN KEY (`userId`) REFERENCES `users` (`id`) ON DELETE SET NULL ON UPDATE CASCADE) ENGINE=InnoDB;
+Executing (default): SHOW INDEX FROM `refreshTokens`
+Executing (default): SHOW INDEX FROM `refreshTokens`
+Executing (default): CREATE TABLE IF NOT EXISTS `nakshatras` (`id` INTEGER NOT NULL auto_increment , `name` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+Executing (default): CREATE TABLE IF NOT EXISTS `nakshatras` (`id` INTEGER NOT NULL auto_increment , `name` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+Executing (default): SHOW INDEX FROM `nakshatras`
+Executing (default): SHOW INDEX FROM `nakshatras`
+Executing (default): CREATE TABLE IF NOT EXISTS `gothras` (`id` INTEGER NOT NULL auto_increment , `name` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+Executing (default): CREATE TABLE IF NOT EXISTS `gothras` (`id` INTEGER NOT NULL auto_increment , `name` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+Executing (default): SHOW INDEX FROM `gothras`
+Executing (default): SHOW INDEX FROM `gothras`
+Executing (default): CREATE TABLE IF NOT EXISTS `user_roles` (`createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, `roleId` INTEGER , `userId` INTEGER , PRIMARY KEY (`roleId`, `userId`), FOREIGN KEY (`roleId`) REFERENCES `roles` (`id`) ON DELETE CASCADE ON UPDATE CASCADE, FOREIGN KEY (`userId`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE) ENGINE=InnoDB;
+Executing (default): CREATE TABLE IF NOT EXISTS `user_roles` (`createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, `roleId` INTEGER , `userId` INTEGER , PRIMARY KEY (`roleId`, `userId`), FOREIGN KEY (`roleId`) REFERENCES `roles` (`id`) ON DELETE CASCADE ON UPDATE CASCADE, FOREIGN KEY (`userId`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE) ENGINE=InnoDB;
+Executing (default): SHOW INDEX FROM `user_roles`
+Executing (default): SHOW INDEX FROM `user_roles`
+Drop and Resync Database with { force: true }
+Executing (default): INSERT INTO `roles` (`id`,`name`,`createdAt`,`updatedAt`) VALUES (?,?,?,?);
+Executing (default): INSERT INTO `roles` (`id`,`name`,`createdAt`,`updatedAt`) VALUES (?,?,?,?);
+Executing (default): INSERT INTO `roles` (`id`,`name`,`createdAt`,`updatedAt`) VALUES (?,?,?,?);
+Executing (default): SELECT `id`, `username`, `email`, `password`, `createdAt`, `updatedAt` FROM `users` AS `users` WHERE `users`.`username` = 'psaasdasdsdsg' LIMIT 1;
+Executing (default): SELECT `id`, `username`, `email`, `password`, `createdAt`, `updatedAt` FROM `users` AS `users` WHERE `users`.`email` = 'psasdsasdasdg@gmail.com' LIMIT 1;
+Am here signing uppp
+Executing (default): INSERT INTO `users` (`id`,`username`,`email`,`password`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?);
+Executing (default): SELECT `createdAt`, `updatedAt`, `roleId`, `userId` FROM `user_roles` AS `user_roles` WHERE `user_roles`.`userId` = 5;
+Executing (default): INSERT INTO `user_roles` (`createdAt`,`updatedAt`,`roleId`,`userId`) VALUES ('2024-10-26 11:56:06','2024-10-26 11:56:06',1,5);
+2 User registered successfully! from console
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node server.js`[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node server.js`[39m
+Server is running on port 8082.
+Executing (default): CREATE TABLE IF NOT EXISTS `users` (`id` INTEGER NOT NULL auto_increment , `username` VARCHAR(255), `email` VARCHAR(255), `password` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+Executing (default): CREATE TABLE IF NOT EXISTS `users` (`id` INTEGER NOT NULL auto_increment , `username` VARCHAR(255), `email` VARCHAR(255), `password` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+Executing (default): SHOW INDEX FROM `users`
+Executing (default): SHOW INDEX FROM `users`
+Executing (default): CREATE TABLE IF NOT EXISTS `roles` (`id` INTEGER , `name` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+Executing (default): CREATE TABLE IF NOT EXISTS `roles` (`id` INTEGER , `name` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+Executing (default): SHOW INDEX FROM `roles`
+Executing (default): SHOW INDEX FROM `roles`
+Executing (default): CREATE TABLE IF NOT EXISTS `refreshTokens` (`id` INTEGER NOT NULL auto_increment , `token` VARCHAR(255), `expiryDate` DATETIME, `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, `userId` INTEGER, PRIMARY KEY (`id`), FOREIGN KEY (`userId`) REFERENCES `users` (`id`) ON DELETE SET NULL ON UPDATE CASCADE) ENGINE=InnoDB;
+Executing (default): CREATE TABLE IF NOT EXISTS `refreshTokens` (`id` INTEGER NOT NULL auto_increment , `token` VARCHAR(255), `expiryDate` DATETIME, `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, `userId` INTEGER, PRIMARY KEY (`id`), FOREIGN KEY (`userId`) REFERENCES `users` (`id`) ON DELETE SET NULL ON UPDATE CASCADE) ENGINE=InnoDB;
+Executing (default): SHOW INDEX FROM `refreshTokens`
+Executing (default): CREATE TABLE IF NOT EXISTS `nakshatras` (`id` INTEGER NOT NULL auto_increment , `name` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+Executing (default): SHOW INDEX FROM `refreshTokens`
+Executing (default): SHOW INDEX FROM `nakshatras`
+Executing (default): CREATE TABLE IF NOT EXISTS `nakshatras` (`id` INTEGER NOT NULL auto_increment , `name` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+Executing (default): SHOW INDEX FROM `nakshatras`
+Executing (default): CREATE TABLE IF NOT EXISTS `gothras` (`id` INTEGER NOT NULL auto_increment , `name` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+Executing (default): SHOW INDEX FROM `gothras`
+Executing (default): CREATE TABLE IF NOT EXISTS `user_roles` (`createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, `roleId` INTEGER , `userId` INTEGER , PRIMARY KEY (`roleId`, `userId`), FOREIGN KEY (`roleId`) REFERENCES `roles` (`id`) ON DELETE CASCADE ON UPDATE CASCADE, FOREIGN KEY (`userId`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE) ENGINE=InnoDB;
+Executing (default): SHOW INDEX FROM `user_roles`
+Drop and Resync Database with { force: true }
+Executing (default): INSERT INTO `roles` (`id`,`name`,`createdAt`,`updatedAt`) VALUES (?,?,?,?);
+Executing (default): INSERT INTO `roles` (`id`,`name`,`createdAt`,`updatedAt`) VALUES (?,?,?,?);
+Executing (default): INSERT INTO `roles` (`id`,`name`,`createdAt`,`updatedAt`) VALUES (?,?,?,?);
+Executing (default): CREATE TABLE IF NOT EXISTS `gothras` (`id` INTEGER NOT NULL auto_increment , `name` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+Executing (default): SHOW INDEX FROM `gothras`
+Executing (default): CREATE TABLE IF NOT EXISTS `user_roles` (`createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, `roleId` INTEGER , `userId` INTEGER , PRIMARY KEY (`roleId`, `userId`), FOREIGN KEY (`roleId`) REFERENCES `roles` (`id`) ON DELETE CASCADE ON UPDATE CASCADE, FOREIGN KEY (`userId`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE) ENGINE=InnoDB;
+Executing (default): SHOW INDEX FROM `user_roles`
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node server.js`[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node server.js`[39m
+Server is running on port 8082.
+Executing (default): CREATE TABLE IF NOT EXISTS `users` (`id` INTEGER NOT NULL auto_increment , `username` VARCHAR(255), `email` VARCHAR(255), `password` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+Executing (default): CREATE TABLE IF NOT EXISTS `users` (`id` INTEGER NOT NULL auto_increment , `username` VARCHAR(255), `email` VARCHAR(255), `password` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+Executing (default): SHOW INDEX FROM `users`
+Executing (default): SHOW INDEX FROM `users`
+Executing (default): CREATE TABLE IF NOT EXISTS `roles` (`id` INTEGER , `name` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+Executing (default): CREATE TABLE IF NOT EXISTS `roles` (`id` INTEGER , `name` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+Executing (default): SHOW INDEX FROM `roles`
+Executing (default): SHOW INDEX FROM `roles`
+Executing (default): CREATE TABLE IF NOT EXISTS `refreshTokens` (`id` INTEGER NOT NULL auto_increment , `token` VARCHAR(255), `expiryDate` DATETIME, `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, `userId` INTEGER, PRIMARY KEY (`id`), FOREIGN KEY (`userId`) REFERENCES `users` (`id`) ON DELETE SET NULL ON UPDATE CASCADE) ENGINE=InnoDB;
+Executing (default): CREATE TABLE IF NOT EXISTS `refreshTokens` (`id` INTEGER NOT NULL auto_increment , `token` VARCHAR(255), `expiryDate` DATETIME, `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, `userId` INTEGER, PRIMARY KEY (`id`), FOREIGN KEY (`userId`) REFERENCES `users` (`id`) ON DELETE SET NULL ON UPDATE CASCADE) ENGINE=InnoDB;
+Executing (default): SHOW INDEX FROM `refreshTokens`
+Executing (default): SHOW INDEX FROM `refreshTokens`
+Executing (default): CREATE TABLE IF NOT EXISTS `nakshatras` (`id` INTEGER NOT NULL auto_increment , `name` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+Executing (default): CREATE TABLE IF NOT EXISTS `nakshatras` (`id` INTEGER NOT NULL auto_increment , `name` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+Executing (default): SHOW INDEX FROM `nakshatras`
+Executing (default): SHOW INDEX FROM `nakshatras`
+Executing (default): CREATE TABLE IF NOT EXISTS `gothras` (`id` INTEGER NOT NULL auto_increment , `name` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+Executing (default): CREATE TABLE IF NOT EXISTS `gothras` (`id` INTEGER NOT NULL auto_increment , `name` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+Executing (default): SHOW INDEX FROM `gothras`
+Executing (default): SHOW INDEX FROM `gothras`
+Executing (default): CREATE TABLE IF NOT EXISTS `user_roles` (`createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, `roleId` INTEGER , `userId` INTEGER , PRIMARY KEY (`roleId`, `userId`), FOREIGN KEY (`roleId`) REFERENCES `roles` (`id`) ON DELETE CASCADE ON UPDATE CASCADE, FOREIGN KEY (`userId`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE) ENGINE=InnoDB;
+Executing (default): CREATE TABLE IF NOT EXISTS `user_roles` (`createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, `roleId` INTEGER , `userId` INTEGER , PRIMARY KEY (`roleId`, `userId`), FOREIGN KEY (`roleId`) REFERENCES `roles` (`id`) ON DELETE CASCADE ON UPDATE CASCADE, FOREIGN KEY (`userId`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE) ENGINE=InnoDB;
+Executing (default): SHOW INDEX FROM `user_roles`
+Executing (default): SHOW INDEX FROM `user_roles`
+Drop and Resync Database with { force: true }
+Executing (default): INSERT INTO `roles` (`id`,`name`,`createdAt`,`updatedAt`) VALUES (?,?,?,?);
+Executing (default): INSERT INTO `roles` (`id`,`name`,`createdAt`,`updatedAt`) VALUES (?,?,?,?);
+Executing (default): INSERT INTO `roles` (`id`,`name`,`createdAt`,`updatedAt`) VALUES (?,?,?,?);
+Executing (default): SELECT `id`, `username`, `email`, `password`, `createdAt`, `updatedAt` FROM `users` AS `users` WHERE `users`.`username` = 'psaasdasadsdsg' LIMIT 1;
+Executing (default): SELECT `id`, `username`, `email`, `password`, `createdAt`, `updatedAt` FROM `users` AS `users` WHERE `users`.`email` = 'psasdsasdasdag@gmail.com' LIMIT 1;
+Am here signing uppp
+Executing (default): INSERT INTO `users` (`id`,`username`,`email`,`password`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?);
+Executing (default): SELECT `createdAt`, `updatedAt`, `roleId`, `userId` FROM `user_roles` AS `user_roles` WHERE `user_roles`.`userId` = 6;
+Executing (default): INSERT INTO `user_roles` (`createdAt`,`updatedAt`,`roleId`,`userId`) VALUES ('2024-10-26 11:59:19','2024-10-26 11:59:19',1,6);
+2 User registered successfully! from conso le[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node server.js`[39m
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node server.js`[39m
+Server is running on port 8082.
+Executing (default): CREATE TABLE IF NOT EXISTS `users` (`id` INTEGER NOT NULL auto_increment , `username` VARCHAR(255), `email` VARCHAR(255), `password` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+Executing (default): CREATE TABLE IF NOT EXISTS `users` (`id` INTEGER NOT NULL auto_increment , `username` VARCHAR(255), `email` VARCHAR(255), `password` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+Executing (default): SHOW INDEX FROM `users`
+Executing (default): SHOW INDEX FROM `users`
+Executing (default): CREATE TABLE IF NOT EXISTS `roles` (`id` INTEGER , `name` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+Executing (default): CREATE TABLE IF NOT EXISTS `roles` (`id` INTEGER , `name` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+Executing (default): SHOW INDEX FROM `roles`
+Executing (default): SHOW INDEX FROM `roles`
+Executing (default): CREATE TABLE IF NOT EXISTS `refreshTokens` (`id` INTEGER NOT NULL auto_increment , `token` VARCHAR(255), `expiryDate` DATETIME, `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, `userId` INTEGER, PRIMARY KEY (`id`), FOREIGN KEY (`userId`) REFERENCES `users` (`id`) ON DELETE SET NULL ON UPDATE CASCADE) ENGINE=InnoDB;
+Executing (default): CREATE TABLE IF NOT EXISTS `refreshTokens` (`id` INTEGER NOT NULL auto_increment , `token` VARCHAR(255), `expiryDate` DATETIME, `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, `userId` INTEGER, PRIMARY KEY (`id`), FOREIGN KEY (`userId`) REFERENCES `users` (`id`) ON DELETE SET NULL ON UPDATE CASCADE) ENGINE=InnoDB;
+Executing (default): SHOW INDEX FROM `refreshTokens`
+Executing (default): SHOW INDEX FROM `refreshTokens`
+Executing (default): CREATE TABLE IF NOT EXISTS `nakshatras` (`id` INTEGER NOT NULL auto_increment , `name` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+Executing (default): CREATE TABLE IF NOT EXISTS `nakshatras` (`id` INTEGER NOT NULL auto_increment , `name` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+Executing (default): SHOW INDEX FROM `nakshatras`
+Executing (default): SHOW INDEX FROM `nakshatras`
+Executing (default): CREATE TABLE IF NOT EXISTS `gothras` (`id` INTEGER NOT NULL auto_increment , `name` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+Executing (default): CREATE TABLE IF NOT EXISTS `gothras` (`id` INTEGER NOT NULL auto_increment , `name` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+Executing (default): SHOW INDEX FROM `gothras`
+Executing (default): SHOW INDEX FROM `gothras`
+Executing (default): CREATE TABLE IF NOT EXISTS `user_roles` (`createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, `roleId` INTEGER , `userId` INTEGER , PRIMARY KEY (`roleId`, `userId`), FOREIGN KEY (`roleId`) REFERENCES `roles` (`id`) ON DELETE CASCADE ON UPDATE CASCADE, FOREIGN KEY (`userId`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE) ENGINE=InnoDB;
+Executing (default): CREATE TABLE IF NOT EXISTS `user_roles` (`createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, `roleId` INTEGER , `userId` INTEGER , PRIMARY KEY (`roleId`, `userId`), FOREIGN KEY (`roleId`) REFERENCES `roles` (`id`) ON DELETE CASCADE ON UPDATE CASCADE, FOREIGN KEY (`userId`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE) ENGINE=InnoDB;
+Executing (default): SHOW INDEX FROM `user_roles`
+Executing (default): SHOW INDEX FROM `user_roles`
+Drop and Resync Database with { force: true }
+Executing (default): INSERT INTO `roles` (`id`,`name`,`createdAt`,`updatedAt`) VALUES (?,?,?,?);
+Executing (default): INSERT INTO `roles` (`id`,`name`,`createdAt`,`updatedAt`) VALUES (?,?,?,?);
+Executing (default): INSERT INTO `roles` (`id`,`name`,`createdAt`,`updatedAt`) VALUES (?,?,?,?);
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node server.js`[39m
+Server is running on port 8082.
+Executing (default): CREATE TABLE IF NOT EXISTS `users` (`id` INTEGER NOT NULL auto_increment , `username` VARCHAR(255), `email` VARCHAR(255), `password` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+Executing (default): CREATE TABLE IF NOT EXISTS `users` (`id` INTEGER NOT NULL auto_increment , `username` VARCHAR(255), `email` VARCHAR(255), `password` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+Executing (default): SHOW INDEX FROM `users`
+Executing (default): SHOW INDEX FROM `users`
+Executing (default): CREATE TABLE IF NOT EXISTS `roles` (`id` INTEGER , `name` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+Executing (default): CREATE TABLE IF NOT EXISTS `roles` (`id` INTEGER , `name` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+Executing (default): SHOW INDEX FROM `roles`
+Executing (default): SHOW INDEX FROM `roles`
+Executing (default): CREATE TABLE IF NOT EXISTS `refreshTokens` (`id` INTEGER NOT NULL auto_increment , `token` VARCHAR(255), `expiryDate` DATETIME, `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, `userId` INTEGER, PRIMARY KEY (`id`), FOREIGN KEY (`userId`) REFERENCES `users` (`id`) ON DELETE SET NULL ON UPDATE CASCADE) ENGINE=InnoDB;
+Executing (default): CREATE TABLE IF NOT EXISTS `refreshTokens` (`id` INTEGER NOT NULL auto_increment , `token` VARCHAR(255), `expiryDate` DATETIME, `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, `userId` INTEGER, PRIMARY KEY (`id`), FOREIGN KEY (`userId`) REFERENCES `users` (`id`) ON DELETE SET NULL ON UPDATE CASCADE) ENGINE=InnoDB;
+Executing (default): SHOW INDEX FROM `refreshTokens`
+Executing (default): SHOW INDEX FROM `refreshTokens`
+Executing (default): CREATE TABLE IF NOT EXISTS `nakshatras` (`id` INTEGER NOT NULL auto_increment , `name` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+Executing (default): CREATE TABLE IF NOT EXISTS `nakshatras` (`id` INTEGER NOT NULL auto_increment , `name` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+Executing (default): SHOW INDEX FROM `nakshatras`
+Executing (default): SHOW INDEX FROM `nakshatras`
+Executing (default): CREATE TABLE IF NOT EXISTS `gothras` (`id` INTEGER NOT NULL auto_increment , `name` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+Executing (default): CREATE TABLE IF NOT EXISTS `gothras` (`id` INTEGER NOT NULL auto_increment , `name` VARCHAR(255), `createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, PRIMARY KEY (`id`)) ENGINE=InnoDB;
+Executing (default): SHOW INDEX FROM `gothras`
+Executing (default): SHOW INDEX FROM `gothras`
+Executing (default): CREATE TABLE IF NOT EXISTS `user_roles` (`createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, `roleId` INTEGER , `userId` INTEGER , PRIMARY KEY (`roleId`, `userId`), FOREIGN KEY (`roleId`) REFERENCES `roles` (`id`) ON DELETE CASCADE ON UPDATE CASCADE, FOREIGN KEY (`userId`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE) ENGINE=InnoDB;
+Executing (default): CREATE TABLE IF NOT EXISTS `user_roles` (`createdAt` DATETIME NOT NULL, `updatedAt` DATETIME NOT NULL, `roleId` INTEGER , `userId` INTEGER , PRIMARY KEY (`roleId`, `userId`), FOREIGN KEY (`roleId`) REFERENCES `roles` (`id`) ON DELETE CASCADE ON UPDATE CASCADE, FOREIGN KEY (`userId`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE) ENGINE=InnoDB;
+Executing (default): SHOW INDEX FROM `user_roles`
+Executing (default): SHOW INDEX FROM `user_roles`
+Drop and Resync Database with { force: true }
+Executing (default): INSERT INTO `roles` (`id`,`name`,`createdAt`,`updatedAt`) VALUES (?,?,?,?);
+Executing (default): INSERT INTO `roles` (`id`,`name`,`createdAt`,`updatedAt`) VALUES (?,?,?,?);
+Executing (default): INSERT INTO `roles` (`id`,`name`,`createdAt`,`updatedAt`) VALUES (?,?,?,?);
+Executing (default): SELECT `id`, `username`, `email`, `password`, `createdAt`, `updatedAt` FROM `users` AS `users` WHERE `users`.`username` = 'psaasdasaadsdsg' LIMIT 1;
+Executing (default): SELECT `id`, `username`, `email`, `password`, `createdAt`, `updatedAt` FROM `users` AS `users` WHERE `users`.`email` = 'psasdsasdaasdag@gmail.com' LIMIT 1;
+Am here signing uppp
+Executing (default): INSERT INTO `users` (`id`,`username`,`email`,`password`,`createdAt`,`updatedAt`) VALUES (DEFAULT,?,?,?,?,?);
+Executing (default): SELECT `createdAt`, `updatedAt`, `roleId`, `userId` FROM `user_roles` AS `user_roles` WHERE `user_roles`.`userId` = 7;
+Executing (default): INSERT INTO `user_roles` (`createdAt`,`updatedAt`,`roleId`,`userId`) VALUES ('2024-10-26 12:01:48','2024-10-26 12:01:48',1,7);
+2 User registered successfully! from console
+2 User registered successfully! from conso le
