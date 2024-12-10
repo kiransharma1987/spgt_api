@@ -51,9 +51,14 @@ exports.submitSeveBooking = (req, res) => {
         nakshatra: req.body.nakshatra,
         gothra: req.body.gothra,
         rashi: req.body.rashi,
+<<<<<<< HEAD
         seve: req.body.seve,
         amount: req.body.amount,
         scheduled_date: req.body.scheduled_date
+=======
+        type: req.body.type,
+        amount: req.body.amount
+>>>>>>> parent of 4583d7c (Changed a field name in table submitted_seves)
     })
         .then(submitted_seve => {
             const newSeveId = submitted_seve.id;
