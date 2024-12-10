@@ -26,7 +26,7 @@ exports.fetch_nakshatras = async (req, res) => {
         nakshatra: req.body.nakshatra,
         gothra: req.body.gothra,
         rashi: req.body.rashi,
-        seve: req.body.seve,
+        type: req.body.type,
         amount: req.body.amount
     })
         .then(submitted_seve => {
