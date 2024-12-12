@@ -18,36 +18,12 @@ exports.fetch_nakshatras = async (req, res) => {
     }
 };
 
-/*exports.submitSeveBooking = (req, res) => {
-    // Save Submitted_Seves to Database
-    Submitted_Seves.create({
-        name: req.body.name,
-        mobile: req.body.mobile,
-        nakshatra: req.body.nakshatra,
-        gothra: req.body.gothra,
-        rashi: req.body.rashi,
-        type: req.body.type,
-        amount: req.body.amount
-    })
-        .then(submitted_seve => {
-            const today = new Date();
-            const formattedDate = (today.getMonth() + 1).toString().padStart(2, '0') + today.getFullYear().toString().slice(2);
-            console.log(formattedDate);
-            res.send({
-                status: 1,
-                message: "Seve added successfully !"
-            });
-        })
-        .catch(err => {
-            res.status(500).send({message: err.message});
-        });
-};*/
-
 exports.submitSeveBooking = (req, res) => {
     // Save Submitted_Seves to Database
     Submitted_Seves.create({
         name: req.body.name,
         mobile: req.body.mobile,
+        email: req.body.email,
         nakshatra: req.body.nakshatra,
         gothra: req.body.gothra,
         rashi: req.body.rashi,
