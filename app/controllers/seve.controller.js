@@ -46,7 +46,16 @@ exports.submitSeveBooking = (req, res) => {
                 status: 1,
                 message: "Seve added successfully !",
                 bill_num: billNum,
-                updated_at_time:updatedAtTime
+                name: submitted_seve.name,
+                mobile: submitted_seve.mobile,
+                email: submitted_seve.email,
+                nakshatra: submitted_seve.nakshatra,
+                gothra: submitted_seve.gothra,
+                rashi: submitted_seve.rashi,
+                seve: submitted_seve.seve,
+                amount: submitted_seve.amount,
+                scheduled_date: submitted_seve.scheduled_date,
+                updated_at_time: updatedAtTime
             });
         })
         .catch(err => {
