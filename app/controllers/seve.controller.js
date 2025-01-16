@@ -37,7 +37,7 @@ exports.submitSeveBooking = (req, res) => {
             const today = new Date();
             const formattedDate = (today.getMonth() + 1).toString().padStart(2, '0') + today.getFullYear().toString().slice(2);
             const billNum = 'SM-' + formattedDate + newSeveId;
-            console.log('Formatted Date:', formattedDate);
+            console.log('Formatted 2 Date:', formattedDate);
             console.log('New Seve ID:', newSeveId);
             console.log('Bill Num:', billNum);
             console.log('Updated at time:', updatedAtTime); 
@@ -52,5 +52,18 @@ exports.submitSeveBooking = (req, res) => {
         .catch(err => {
             res.status(500).send({message: err.message});
         });
+};
+
+exports.viewAllSeves = async (req, res) => {
+    try {
+        console.log('Am here in new view  all')
+        const seves = await Submitted_Seves.findAll(); // Fetch all seves
+    
+        res.status(200).send({
+            seves: seves
+        });
+    } catch (err) {
+        res.status(500).send({message: err.message}); // Handle error
+    }
 };
 
