@@ -4,7 +4,7 @@ const cors = require("cors");
 const app = express();
 
 const corsOptions = {
-  origin: ['http://localhost:8000', 'https://admin.spgt.co.in', 'https://spgt.co.in', 'http://admin.spgt.co.in', 'http://spgt.co.in'], // Add allowed origins
+  origin: ['http://localhost:8000','http://localhost:3000', 'https://admin.spgt.co.in', 'https://spgt.co.in', 'http://admin.spgt.co.in', 'http://spgt.co.in'], // Add allowed origins
   methods: ['GET', 'POST', 'PUT', 'DELETE'], // Specify allowed HTTP methods
 };
 
