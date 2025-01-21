@@ -26,6 +26,9 @@ module.exports = (sequelize, Sequelize) => {
         },
         scheduled_date: {
             type: Sequelize.STRING
+        },
+        bill_num: {
+            type: Sequelize.STRING
         }
     });
     return Submitted_Seves;
