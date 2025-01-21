@@ -21,7 +21,7 @@ exports.fetch_nakshatras = async (req, res) => {
 exports.submitSeveBooking = async (req, res) => {
     try {
         // Step 1: Create the entry in the database
-        const submittedSeve = await Submitted_Seves.create({
+        const submitted_seve = await Submitted_Seves.create({
             name: req.body.name,
             mobile: req.body.mobile,
             email: req.body.email,
@@ -34,8 +34,8 @@ exports.submitSeveBooking = async (req, res) => {
         });
 
         // Step 2: Generate the billNum
-        const newSeveId = submittedSeve.id;
-        const updatedAtTime = submittedSeve.updatedAt.toLocaleString("en-IN", { timeZone: "Asia/Kolkata" });
+        const newSeveId = submitted_seve.id;
+        const updatedAtTime = submitted_seve.updatedAt.toLocaleString("en-IN", { timeZone: "Asia/Kolkata" });
         const today = new Date();
         const formattedDate = (today.getMonth() + 1).toString().padStart(2, '0') + today.getFullYear().toString().slice(2);
         const billNum = 'SM-' + formattedDate + newSeveId;
@@ -49,8 +49,17 @@ exports.submitSeveBooking = async (req, res) => {
         // Step 4: Respond to the client
         res.send({
             status: 1,
-            message: "Seve added successfully!",
+            message: "Seve added successfully !",
             bill_num: billNum,
+            name: submitted_seve.name,
+            mobile: submitted_seve.mobile,
+            email: submitted_seve.email,
+            nakshatra: submitted_seve.nakshatra,
+            gothra: submitted_seve.gothra,
+            rashi: submitted_seve.rashi,
+            seve: submitted_seve.seve,
+            amount: submitted_seve.amount,
+            scheduled_date: submitted_seve.scheduled_date,
             updated_at_time: updatedAtTime
         });
     } catch (err) {
