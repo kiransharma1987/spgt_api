@@ -151,31 +151,3 @@ exports.subscribeSeve = async (req, res) => {
         return res.status(500).json({ success: false, message: "Internal Server Error" });
     }
 };
-
-// Test function
-const testSubscribeSeve = async () => {
-    try {
-        const req = {
-            body: {
-                name: "Test Name",
-                mobile: "1234567890",
-                email: "test@example.com",
-                nakshatra: "Ashwini",
-                gothra: "Bharadwaj",
-                rashi: "Mesha",
-                amount: "1000",
-                seve_name: "Sankasta"
-            }
-        };
-        const res = {
-            status: (code) => ({
-                json: (data) => console.log("Response:", code, data)
-            })
-        };
-        await exports.subscribeSeve(req, res);
-    } catch (error) {
-        console.error("Test error:", error);
-    }
-};
-
-testSubscribeSeve();
