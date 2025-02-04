@@ -68,7 +68,7 @@ exports.submitSeveBooking = async (req, res) => {
             type : submitted_seve.type,
         });
     } catch (err) {
-        res.status(500).send({ message: err.message });
+        res.status(500).send({ status: 2, message: err.message });
     }
 };
 
@@ -101,7 +101,7 @@ exports.subscribeSeve = async (req, res) => {
         const requiredFields = ["name", "mobile", "email", "nakshatra", "gothra", "rashi", "amount", "seve"];
         for (const field of requiredFields) {
             if (!req.body[field]) {
-                return res.status(400).json({ success: false, message: `${field} is required` });
+                return res.status(400).json({ status: 3, message: `${field} is required` });
             }
         }
 
@@ -122,7 +122,7 @@ exports.subscribeSeve = async (req, res) => {
         });
 
         if (subscriptions.length === 0) {
-            return res.status(200).json({ success: false, message: "No subscriptions found" });
+            return res.status(200).json({ status: 4, message: "No subscriptions found" });
         }
 
         // Generate billNum
@@ -145,9 +145,9 @@ exports.subscribeSeve = async (req, res) => {
 
         await Submitted_Seves.bulkCreate(submittedEntries);
 
-        return res.status(200).json({ success: true, data: subscriptions, bill_num: billNum, message: "Entries inserted into submitted_seves successfully" });
+        return res.status(200).json({ status: 1, data: subscriptions, bill_num: billNum, message: "Entries inserted into submitted_seves successfully" });
     } catch (error) {
         console.error("Error fetching or inserting subscriptions:", error);
-        return res.status(500).json({ success: false, message: "Internal Server Error" });
+        return res.status(500).json({ status: 2, message: "Internal Server Error" });
     }
 };
