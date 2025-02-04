@@ -5,6 +5,9 @@ module.exports = (sequelize, Sequelize) => {
         },
         amount: {
             type: Sequelize.STRING
+        },
+        type: {
+            type: Sequelize.STRING
         }
     });
     return Seves;
