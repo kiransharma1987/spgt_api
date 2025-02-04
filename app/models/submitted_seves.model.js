@@ -29,6 +29,9 @@ module.exports = (sequelize, Sequelize) => {
         },
         bill_num: {
             type: Sequelize.STRING
+        },
+        type: {
+            type: Sequelize.STRING
         }
     });
     return Submitted_Seves;
