@@ -18,6 +18,6 @@ module.exports = function(app) {
     app.get("/api/auth/seve", fetchNakshatrasWrapper);
     app.post("/api/seve/submit", submitSeveBooking);
     app.get("/api/seve/view_all_seves", viewAllSeves);
-    app.get("/api/seve/subscribe_seve", subscribeSeve); 
+    app.post("/api/seve/subscribe_seve", subscribeSeve); 
     // app.get("/api/seve/get-sankasta-dates", getSankastaDates);  
 };
