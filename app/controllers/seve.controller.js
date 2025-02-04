@@ -98,7 +98,7 @@ const generateBillNum = async () => {
 
 exports.subscribeSeve = async (req, res) => {
     try {
-        const requiredFields = ["name", "mobile", "email", "nakshatra", "gothra", "rashi", "amount", "seve_name"];
+        const requiredFields = ["name", "mobile", "email", "nakshatra", "gothra", "rashi", "amount", "seve"];
         for (const field of requiredFields) {
             if (!req.body[field]) {
                 return res.status(400).json({ success: false, message: `${field} is required` });
@@ -106,7 +106,7 @@ exports.subscribeSeve = async (req, res) => {
         }
 
         const today = moment().format("YYYY-MM-DD");
-        const seveName = req.body.seve_name;
+        const seveName = req.body.seve;
         const numberOfTotalSeves = 12;
         const perSeveAmount = req.body.amount/numberOfTotalSeves;
 
