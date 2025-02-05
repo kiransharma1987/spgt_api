@@ -34,6 +34,7 @@ exports.submitSeveBooking = async (req, res) => {
             rashi: req.body.rashi,
             seve: req.body.seve,
             amount: req.body.amount,
+            booked_date:req.body.scheduled_date,
             scheduled_date: req.body.scheduled_date
         });
 
@@ -99,6 +100,7 @@ const generateBillNum = async () => {
 exports.subscribeSeve = async (req, res) => {
     try {
         const requiredFields = ["name", "mobile", "email", "nakshatra", "gothra", "rashi", "amount", "seve"];
+        const type = "Yearly";
         for (const field of requiredFields) {
             if (!req.body[field]) {
                 return res.status(400).json({ status: 3, message: `${field} is required` });
@@ -127,6 +129,7 @@ exports.subscribeSeve = async (req, res) => {
 
         // Generate billNum
         const billNum = await generateBillNum();
+        
 
         // Insert selected 12 entries into submitted_seves
         const submittedEntries = subscriptions.map(subscription => ({
@@ -138,14 +141,35 @@ exports.subscribeSeve = async (req, res) => {
             rashi: req.body.rashi,
             seve: subscription.name,
             amount: perSeveAmount,
+            booked_date:req.body.scheduled_date,
             scheduled_date: subscription.date,
             bill_num: billNum,
-            type: "Yearly"
+            type: type
         }));
+        const scheduledDate = submittedEntries[0].scheduled_date;
+        const savedRows = await Submitted_Seves.bulkCreate(submittedEntries);
+        const updatedAtTime = savedRows[0].updatedAt.toLocaleString("en-IN", { timeZone: "Asia/Kolkata" });
+        const latestDate = subscriptions[numberOfTotalSeves-1].date;
 
-        await Submitted_Seves.bulkCreate(submittedEntries);
-
-        return res.status(200).json({ status: 1, data: subscriptions, bill_num: billNum, message: "Entries inserted into submitted_seves successfully" });
+        return res.status(200).json({ 
+            status: 1, 
+            data: subscriptions, 
+            bill_num: billNum,
+            name: req.body.name,
+            mobile: req.body.mobile,
+            email: req.body.email,
+            nakshatra: req.body.nakshatra,
+            gothra: req.body.gothra,
+            rashi: req.body.rashi,
+            seve: req.body.seve,
+            amount: req.body.amount,
+            scheduled_date: scheduledDate,
+            updated_at_time: updatedAtTime,
+            booked_date:req.body.scheduled_date,
+            start_date:scheduledDate,
+            end_date:latestDate,
+            type : type,
+            message: "Entries inserted into submitted_seves successfully" });
     } catch (error) {
         console.error("Error fetching or inserting subscriptions:", error);
         return res.status(500).json({ status: 2, message: "Internal Server Error" });
